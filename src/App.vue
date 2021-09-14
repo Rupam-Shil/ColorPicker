@@ -15,6 +15,7 @@
 :root {
 	--background-color: #23292f;
 	--text-color: #dbdbdb;
+	--text-color-dark: #707070;
 }
 
 body {
