@@ -3,8 +3,8 @@
 		<transition @enter="enter">
 			<div class="copyToClipboard" v-if="isCopied">Copied 📋</div>
 		</transition>
-		<section class="primary ">
-			<h1 class="header mb-1">Color</h1>
+		<section class="primary section ">
+			<h1 class="header mb-1">Click To Copy</h1>
 			<p class="sub-heading mb-2">
 				The Primary Application Colors are neutralized to allow the sparse user
 				of the primary blue and content to take center stage.
@@ -12,6 +12,51 @@
 			<div class="primary-card-section grid-col-4">
 				<primaryCards
 					v-for="(card, index) in primaryCardColors"
+					:key="index"
+					:colorCode="card.colorCode"
+					:colorName="card.colorName"
+					@copied="copiedToClipboard"
+				/>
+			</div>
+		</section>
+		<section class="secondary section">
+			<p class="sub-heading mb-2">
+				Communication between the system and end user(s) are defined by
+				secondary colors that compliment the brand
+			</p>
+			<div class="secondary-card-section grid-col-4">
+				<primaryCards
+					v-for="(card, index) in secondaryCardColors"
+					:key="index"
+					:colorCode="card.colorCode"
+					:colorName="card.colorName"
+					@copied="copiedToClipboard"
+				/>
+			</div>
+		</section>
+		<section class="teritary section">
+			<p class="sub-heading mb-2">
+				Teritary colors are more vibrant to help add emphasis, as well as
+				compliment the core palette. They should be used sparingly.
+			</p>
+			<div class="secondary-card-section grid-col-4">
+				<primaryCards
+					v-for="(card, index) in teritaryColors"
+					:key="index"
+					:colorCode="card.colorCode"
+					:colorName="card.colorName"
+					@copied="copiedToClipboard"
+				/>
+			</div>
+		</section>
+		<section class="grey section">
+			<p class="sub-heading mb-2">
+				Grays are used to help define tent, ui and icons throughout the
+				application including content, ui and icons.
+			</p>
+			<div class="secondary-card-section grid-col-4">
+				<primaryCards
+					v-for="(card, index) in greyColors"
 					:key="index"
 					:colorCode="card.colorCode"
 					:colorName="card.colorName"
@@ -33,6 +78,32 @@ const primaryCardColors = [
 	{ colorName: 'Charcoal', colorCode: '#383F48' },
 	{ colorName: 'Primary Blue', colorCode: '#06BEE1' },
 	{ colorName: 'Base Grey', colorCode: '#E1E1E1' },
+	{ colorName: 'White', colorCode: '#FFFFFF' },
+];
+const secondaryCardColors = [
+	{ colorName: 'Action', colorCode: '#0DCAF0' },
+	{ colorName: 'Success', colorCode: '#30C862' },
+	{ colorName: 'Alert', colorCode: '#FED449' },
+	{ colorName: 'Warning', colorCode: '#FE5157' },
+	{ colorName: 'Dark', colorCode: '#212529' },
+];
+const teritaryColors = [
+	{ colorName: 'Teal', colorCode: '#087E8B' },
+	{ colorName: 'Cyan', colorCode: '#06BEE1' },
+	{ colorName: 'Yellow', colorCode: '#FAF2A1' },
+	{ colorName: 'Orange', colorCode: '#FF765A' },
+	{ colorName: 'Red', colorCode: '#E34F4F' },
+	{ colorName: 'Pink', colorCode: '#F2BAC9' },
+	{ colorName: 'Purple', colorCode: '#3D348B' },
+];
+const greyColors = [
+	{ colorName: 'Dark Gray', colorCode: '#2E353D' },
+	{ colorName: 'Charcoal', colorCode: '#353C45' },
+	{ colorName: 'Slate Gray', colorCode: '#444B53' },
+	{ colorName: 'Campfire', colorCode: '#686C73' },
+	{ colorName: 'Med Gray', colorCode: '#8C939C' },
+	{ colorName: 'Light Gray', colorCode: '#C2C8CF' },
+	{ colorName: 'Base Gray', colorCode: '#E1E1E1' },
 	{ colorName: 'White', colorCode: '#FFFFFF' },
 ];
 //gsap
@@ -63,7 +134,7 @@ const enter = (el, done) => {
 </script>
 
 <style lang="scss" scoped>
-section.primary {
+section.section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -84,11 +155,12 @@ section.primary {
 	margin-bottom: 2rem;
 }
 .grid-col-4 {
-	width: 90%;
+	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
 	gap: 2rem;
 	justify-items: center;
+	justify-content: center;
 }
 .copyToClipboard {
 	background: #fff;
