@@ -176,6 +176,7 @@ section.section {
 	border-radius: 5px;
 	font-size: 1.5rem;
 	font-weight: 600;
+	z-index: 10000;
 }
 
 @media only screen and (max-width: 900px) {
