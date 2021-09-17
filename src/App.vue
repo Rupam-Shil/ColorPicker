@@ -1,6 +1,11 @@
 <template>
+	<Header />
 	<router-view />
 </template>
+
+<script setup>
+import Header from './layouts/Header.vue';
+</script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
