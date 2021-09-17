@@ -1,26 +1,16 @@
 <template>
 	<div class="header">
 		<header>
-			<router-link to="/" class="logo" @click="isGradient = false"
+			<router-link to="/" class="logo" @click="changeGradient"
 				>Color<span>Picker</span></router-link
 			>
 			<nav>
 				<ul>
 					<li>
-						<router-link
-							to="/gradient"
-							class="gradient btn"
-							v-if="!isGradient"
-							@click="isGradient = !isGradient"
+						<router-link to="/gradient" class="gradient btn"
 							>Gradient</router-link
 						>
-						<router-link
-							to="/"
-							class="solid btn"
-							v-else
-							@click="isGradient = !isGradient"
-							>Solid</router-link
-						>
+						<router-link to="/" class="solid btn">Solid</router-link>
 					</li>
 				</ul>
 			</nav>
@@ -29,9 +19,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+// import { computed } from 'vue';
+// import { useStore } from 'vuex';
 
-const isGradient = ref(false);
+// const store = useStore();
+// const isGradient = computed(() => store.state.isGradient);
+
+// const changeGradient = () => store.commit('changeGradient');
 </script>
 
 <style lang="scss" scoped>
@@ -55,6 +49,10 @@ a {
 }
 ul {
 	list-style: none;
+	li {
+		display: flex;
+		gap: 1rem;
+	}
 	.btn {
 		padding: 0.5rem 0.8rem;
 		border-radius: 5px;

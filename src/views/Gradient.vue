@@ -23,6 +23,7 @@
 </template>
 
 <script setup>
+// import { useStore } from 'vuex';
 import gradientCards from '../components/gradientCards.vue';
 import gsap from 'gsap';
 import { ref } from 'vue';
@@ -73,6 +74,16 @@ const enter = (el, done) => {
 		},
 	});
 };
+
+// onMounted(() => {
+// 	const store = useStore();
+// 	const checkGradient = store.commit('changeGradient');
+// 	const isGradient = computed(() => store.state.isGradient);
+
+// 	if (!isGradient.value) {
+// 		checkGradient();
+// 	}
+// });
 </script>
 
 <style lang="scss" scoped>
