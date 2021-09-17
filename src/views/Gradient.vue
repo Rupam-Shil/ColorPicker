@@ -9,7 +9,7 @@
 				A handpicked collection of beautiful color gradients for designers and
 				developers.
 			</p>
-			<div class="gradient-card-section grid-6">
+			<!-- <div class="gradient-card-section grid-6">
 				<gradientCards
 					@copied="copied"
 					v-for="(card, index) in gradientColors"
@@ -17,7 +17,23 @@
 					:colorOne="card.colorOne"
 					:colorTwo="card.colorTwo"
 				/>
-			</div>
+			</div> -->
+			<transition-group
+				class="gradient-card-section grid-6"
+				tag="div"
+				appear
+				@before-enter="gradientbeforeEnter"
+				@enter="gradiententer"
+			>
+				<gradientCards
+					@copied="copied"
+					v-for="(card, index) in gradientColors"
+					:key="index"
+					:colorOne="card.colorOne"
+					:colorTwo="card.colorTwo"
+					:data-index="index"
+				/>
+			</transition-group>
 		</section>
 	</div>
 </template>
@@ -75,6 +91,24 @@ const enter = (el, done) => {
 	});
 };
 
+const gradientbeforeEnter = (el) => {
+	gsap.set(el, {
+		x: 50,
+		opacity: 0,
+		y: 20,
+	});
+};
+
+const gradiententer = (el) => {
+	gsap.to(el, {
+		x: 0,
+		y: 0,
+		duration: 2,
+		opacity: 1,
+		delay: el.dataset.index * 0.1,
+	});
+};
+
 // onMounted(() => {
 // 	const store = useStore();
 // 	const checkGradient = store.commit('changeGradient');
@@ -88,6 +122,7 @@ const enter = (el, done) => {
 
 <style lang="scss" scoped>
 .section {
+	overflow-x: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
