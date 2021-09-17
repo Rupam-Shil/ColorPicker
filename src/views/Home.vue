@@ -183,5 +183,12 @@ section.section {
 	.sub-heading {
 		width: 90%;
 	}
+	section.section {
+		padding: 1rem;
+		.grid-col-4 {
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+			gap: 1rem;
+		}
+	}
 }
 </style>

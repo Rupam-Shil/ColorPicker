@@ -57,6 +57,7 @@ ul {
 		padding: 0.5rem 0.8rem;
 		border-radius: 5px;
 		font-weight: 700;
+		text-align: center;
 	}
 	.gradient {
 		background: linear-gradient(86deg, #e233ff, #ff6b00);
@@ -64,6 +65,18 @@ ul {
 	}
 	.solid {
 		background: #b9345a;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	header {
+		height: max-content;
+		padding: 1rem;
+	}
+	ul {
+		li {
+			flex-direction: column;
+		}
 	}
 }
 </style>

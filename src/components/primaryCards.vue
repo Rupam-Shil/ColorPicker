@@ -97,4 +97,10 @@ const enter = (el, done) => {
 		}
 	}
 }
+@media only screen and (max-width: 900px) {
+	.card {
+		height: 12rem;
+		width: 90%;
+	}
+}
 </style>
