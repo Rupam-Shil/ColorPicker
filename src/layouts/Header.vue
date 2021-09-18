@@ -11,6 +11,9 @@
 							>Gradient</router-link
 						>
 						<router-link to="/" class="solid btn">Solid</router-link>
+						<router-link to="/ai-palette" class="solid btn"
+							>AI Palette</router-link
+						>
 					</li>
 				</ul>
 			</nav>
@@ -72,11 +75,7 @@ ul {
 	header {
 		height: max-content;
 		padding: 1rem;
-	}
-	ul {
-		li {
-			flex-direction: column;
-		}
+		flex-direction: column;
 	}
 }
 </style>

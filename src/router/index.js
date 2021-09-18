@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Gradient from '../views/Gradient.vue';
+import Aipalette from '../views/Ai-palette.vue';
 
 const routes = [
 	{
@@ -12,6 +13,11 @@ const routes = [
 		path: '/gradient',
 		name: 'Gradient',
 		component: Gradient,
+	},
+	{
+		path: '/ai-palette',
+		name: 'Ai-palette',
+		component: Aipalette,
 	},
 ];
 
